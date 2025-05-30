@@ -16,7 +16,8 @@ class UtilisateurSchema(BaseModel):
         return nom.upper()
     
     @field_validator("prenom",mode="after")
-    def transform_prenom(prenom:str):
+    @classmethod
+    def transform_prenom(cls,prenom:str):
         return prenom.upper()
     
     @model_validator(mode='after')
